@@ -5,6 +5,7 @@ import qna.UnAuthorizedException;
 
 import java.util.Objects;
 
+// 케로케로케로케로 신나게
 public class Answer {
     private Long id;
     private Long writerId;
