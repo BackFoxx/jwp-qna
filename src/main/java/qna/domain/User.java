@@ -2,26 +2,18 @@ package qna.domain;
 
 import qna.UnAuthorizedException;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-public class User extends AuditingEntity {
+public class User {
     public static final GuestUser GUEST_USER = new GuestUser();
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 50)
-    private String email;
-    @Column(nullable = false, length = 20)
-    private String name;
-    @Column(nullable = false, length = 20)
-    private String password;
-    @Column(unique = true, nullable = false, length = 20)
     private String userId;
+    private String password;
+    private String name;
+    private String email;
 
-    protected User() {
+    private User() {
     }
 
     public User(String userId, String password, String name, String email) {

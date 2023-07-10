@@ -1,22 +1,11 @@
 package qna.domain;
 
-import javax.persistence.*;
-
-@Entity
-public class Question extends AuditingEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Question {
     private Long id;
-    @Lob
-    private String contents;
-    @Column(nullable = false)
-    private Boolean deleted = false;
-    @Column(nullable = false, length = 100)
     private String title;
+    private String contents;
     private Long writerId;
-
-    public Question() {
-    }
+    private boolean deleted = false;
 
     public Question(String title, String contents) {
         this(null, title, contents);

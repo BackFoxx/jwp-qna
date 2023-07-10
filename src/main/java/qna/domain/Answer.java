@@ -3,25 +3,14 @@ package qna.domain;
 import qna.NotFoundException;
 import qna.UnAuthorizedException;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-public class Answer extends AuditingEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Answer {
     private Long id;
-    @Lob
-    private String contents;
-
-    @Column(nullable = false)
-    private Boolean deleted = false;
-    private Long questionId;
-
     private Long writerId;
-
-    protected Answer() {
-    }
+    private Long questionId;
+    private String contents;
+    private boolean deleted = false;
 
     public Answer(User writer, Question question, String contents) {
         this(null, writer, question, contents);
